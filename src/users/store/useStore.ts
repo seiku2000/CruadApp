@@ -1,3 +1,4 @@
+import { loadUsersBypage } from "../usecases";
 import type { LoadNextPage, LoadPreviusPage, OnUserChanged, ReloadPage, State } from "./interface/UseStore";
 
 const state:State  = {
@@ -7,7 +8,9 @@ const state:State  = {
 }
 
 const loadNextPage:LoadNextPage = async () => {
-    throw new Error('Not implemented');
+    //throw new Error('Not implemented');
+   await loadUsersBypage(state.currentPage + 1);
+    //console.log(page);
 
 }
 

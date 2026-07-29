@@ -1,4 +1,5 @@
 import './style.css'
+import { userApp } from './users/userApp'
 // import typescriptLogo from './assets/typescript.svg'
 // import viteLogo from './assets/vite.svg'
 // import heroImg frosm './assets/hero.png'
@@ -69,3 +70,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
  * 
  * 
  */
+const element = document.querySelector<HTMLDivElement>('#center')!
+userApp(element)
