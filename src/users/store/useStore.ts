@@ -1,4 +1,4 @@
-import type { State } from "./interface/UseStore";
+import type { LoadNextPage, LoadPreviusPage, OnUserChanged, ReloadPage, State } from "./interface/UseStore";
 
 const state:State  = {
     currentPage:0,
@@ -6,22 +6,22 @@ const state:State  = {
 
 }
 
-const loadNextPage = async () => {
+const loadNextPage:LoadNextPage = async () => {
     throw new Error('Not implemented');
 
 }
 
 //Todo:Implementar
-const loadPreviusPage = async () => {
+const loadPreviusPage:LoadPreviusPage = async () => {
         throw new Error('Not implemented');
 }
 
-const onUserChanged = async () => {
+const onUserChanged:OnUserChanged = async () => {
     throw new Error('Not implemented');
 }
 
 
-const reloadPage = async () => {
+const reloadPage:ReloadPage = async () => {
     throw new Error('Not implemented');
 }
 
