@@ -1,5 +1,6 @@
+import type { IUser } from "../models/interface/User";
 import { loadUsersBypage } from "../usecases";
-import type { LoadNextPage, LoadPreviusPage, OnUserChanged, ReloadPage, State } from "./interface/UseStore";
+import type {  LoadNextPage, LoadPreviusPage, OnUserChanged, ReloadPage, State } from "./interface/UseStore";
 
 const state:State  = {
     currentPage:0,
@@ -9,7 +10,10 @@ const state:State  = {
 
 const loadNextPage:LoadNextPage = async () => {
     //throw new Error('Not implemented');
-   await loadUsersBypage(state.currentPage + 1);
+const users =   await loadUsersBypage(state.currentPage + 1);
+if(users.length === 0) return;
+state.currentPage +=1;
+state.users = users;
     //console.log(page);
 
 }
@@ -34,8 +38,8 @@ export default {
     loadPreviusPage,
     onUserChanged,
     reloadPage,
-    getUser: () => [...state.users],
-    getCurrentPage: () => state.currentPage,
+    getUser: ():IUser[] => [...state.users]  ,
+    getCurrentPage: ():number => state.currentPage,
 }
 
 /**
