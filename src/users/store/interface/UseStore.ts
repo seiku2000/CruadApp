@@ -1,6 +1,8 @@
+
+import type {IUser} from '../../models/interface/User'
 export interface State {
     currentPage: number;
-    users: any[];
+    users: IUser[];
 }
 
 export interface LoadNextPage {
