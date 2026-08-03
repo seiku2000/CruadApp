@@ -28,7 +28,7 @@ tbody td {
     color: #1f2937;
 }
 
-button {
+ table button {
     background-color: #f9fafb;
     border: 2px solid #1f2937;
     color: #1f2937;
@@ -37,9 +37,10 @@ button {
     font-weight: 500;
     border-radius: 4px;
     transition: all 0.2s ease;
+  /*  width: 100%;*/
 }
 
-button:hover {
+table button:hover {
     background-color: #1f2937;
     color: #f9fafb;
 }

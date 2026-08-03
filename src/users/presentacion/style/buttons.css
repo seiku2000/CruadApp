@@ -1,0 +1,50 @@
+.buttons-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+        width: 100%;
+
+}
+
+@media (min-width: 768px) {
+    .buttons-container {
+        flex-direction: row;
+    }
+}
+
+.prev-button {
+    flex: 1;
+}
+
+.next-button {
+    flex: 1;
+}
+
+.prev-button,
+.next-button {
+    background-color: #f9fafb;
+    border: 2px solid #1f2937;
+    color: #1f2937;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    width: 100%;
+    
+}
+
+.prev-button:hover,.next-button:hover {
+    background-color: #1f2937;
+    color: #f9fafb;
+}
+
+@media (min-width: 768px) {
+    .prev-button,
+    .next-button {
+          max-width: 100px;
+    }
+}
+

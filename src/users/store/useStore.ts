@@ -20,7 +20,14 @@ state.users = users;
 
 //Todo:Implementar
 const loadPreviusPage:LoadPreviusPage = async () => {
-        throw new Error('Not implemented');
+       // throw new Error('Not implemented');
+const users = await loadUsersBypage(state.currentPage - 1 );
+if( users.length === 0 || state.currentPage <= 1) return;
+//if(users.length === 0)  return;
+//state.currentPage = state.currentPage ? state.currentPage - 1 : 0;
+//state.users = users;
+state.currentPage = state.currentPage - 1;
+state.users = users;
 }
 
 const onUserChanged:OnUserChanged = async () => {

@@ -1,5 +1,5 @@
 import type { IUserApp } from "./IUseApp";
-import { renderTable } from "./presentacion";
+import { renderButtons, renderTable } from "./presentacion";
 import useStore from "./store/useStore";
 
 export const userApp:IUserApp =async (element:HTMLElement) => {
@@ -9,6 +9,7 @@ export const userApp:IUserApp =async (element:HTMLElement) => {
   await useStore.loadNextPage(); 
   element.innerHTML = ``;
   renderTable(element);
+  renderButtons(element);
   //console.log(page);
  
   //console.log(useStore.getUser());
