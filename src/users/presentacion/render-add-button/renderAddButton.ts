@@ -1,4 +1,5 @@
 import type { RenderAddButton } from "../interface/RenderAddButton";
+import { showModal } from "../modal/renderModal";
 import '../style/btnAdd.scss'
 
 export const renderAddButton:RenderAddButton = (element:HTMLElement)  => {
@@ -8,7 +9,8 @@ export const renderAddButton:RenderAddButton = (element:HTMLElement)  => {
   element.appendChild(btnAdd);
 
   btnAdd.addEventListener('click' ,() => {
-    throw new Error('Function not implemented.');
+   // throw new Error('Function not implemented.');
+   showModal();
   });
   return btnAdd;
   

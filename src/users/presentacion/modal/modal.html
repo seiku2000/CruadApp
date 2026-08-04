@@ -1,19 +1,19 @@
     
     
 
-<div class="modal-dialog">
-    <form novalidate>
-        <span>User</span>
-        <input type="text" name="firstName" placeholder="First Name" />
-        <input type="text" name="lastName" placeholder="Last Name" />
-        <input type="number" name="balance" placeholder="Balance" />
+<div class="modal-container__dialog">
+    <form novalidate class ="md-form">
+        <span class="md-form__title">User</span>
+        <input class="md-form__input" type="text" name="firstName" placeholder="First Name" />
+        <input class="md-form__input" type="text" name="lastName" placeholder="Last Name" />
+        <input class="md-form__input" type="number" name="balance" placeholder="Balance" />
 
-        <div>
-            <input type="checkbox" id="is-active" name="isActive" checked/>
-            <label for="is-active">is active?</label>
+        <div class="md-form__checkbox-container">
+            <input class="md-form__checkbox" type="checkbox" id="is-active" name="isActive" checked/>
+            <label class="md-form__label" for="is-active">is active?</label>
         </div>
 
-        <button type="submit">
+        <button class="md-form__button" type="submit">
             Save
         </button>
 
