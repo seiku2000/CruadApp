@@ -10,6 +10,7 @@ export const userApp:IUserApp =async (element:HTMLElement) => {
   element.innerHTML = ``;
   renderTable(element);
   renderButtons(element);
+
   //console.log(page);
  
   //console.log(useStore.getUser());

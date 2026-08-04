@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "json-server": "0.17.4",
+    "sass-embedded": "^1.100.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }

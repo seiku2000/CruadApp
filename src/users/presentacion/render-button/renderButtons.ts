@@ -1,4 +1,5 @@
 import useStore from "../../store/useStore";
+import { renderAddButton } from "../render-add-button/renderAddButton";
 import { renderTable } from "../render-table/rendertable";
 import '../style/buttons.css';
 
@@ -19,8 +20,8 @@ export const renderButtons  =(element:HTMLElement) => {
     currentPageLabel.id = 'current-page';
     currentPageLabel.innerText = useStore.getCurrentPage().toString();
 
-
-    divButtons.append(prevButton,currentPageLabel,nextButton);
+    const btnAdd = renderAddButton(element);
+    divButtons.append(prevButton,currentPageLabel,nextButton, btnAdd);
     element.append(divButtons);
     //element.append(prevButton,currentPageLabel,nextButton);
 
@@ -34,7 +35,7 @@ export const renderButtons  =(element:HTMLElement) => {
         await useStore.loadPreviusPage();
         currentPageLabel.innerText = useStore.getCurrentPage().toString();
         renderTable(element);
-    }) 
+    });
 
     
 }
