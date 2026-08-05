@@ -1,4 +1,4 @@
 export interface IUserApp {
-    (element: HTMLElement): void;
+    (element: HTMLElement): Promise<void>;
 
 }
