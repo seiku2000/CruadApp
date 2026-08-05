@@ -35,7 +35,7 @@ export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
   });
 
 
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', async(event) => {
     event.preventDefault();
     //console.log('enviando formulario');
 
@@ -61,7 +61,7 @@ export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
       }
       // userLike[key] = value.toString() ;
     }
-    callBack(userLike);
+     await callBack?.(userLike);
     closeModal();
 
     //Todo:guardar usuario

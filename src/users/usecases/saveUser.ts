@@ -1,8 +1,9 @@
 import { User } from "../models/user";
 import type { IUser } from "../models/interface/User";
 import type { CreateUser, NormalicerFormData, SaveUser, UserFormData } from "./interface/SaveUser";
+import { userModelToLocalhost } from "../mappers";
 
-//esto es como el mapper de usuario del formulario
+//esto es como el mapper de usuario del formulario para validar campos a usar
 const normaliceFormData: NormalicerFormData = (userLike: UserFormData): IUser => {
     return {
         id: userLike.id ?? 0,
@@ -19,17 +20,17 @@ const normaliceFormData: NormalicerFormData = (userLike: UserFormData): IUser =>
 
 export const saveUser: SaveUser = async (userLike: UserFormData) => {
     const normalized = normaliceFormData(userLike);
-
     const user = new User(normalized);
+    const userToSave:IUser = userModelToLocalhost(user);
 
-    //todo aqui falta el mapper
+    //! todo aqui falta el mapper
 
 
     if (user.id) {
         throw 'No implementado'
         return
     }
-    const updateUser: User = await createUser(user);
+    const updateUser: User = await createUser(userToSave);
     return updateUser;
 }
 
@@ -45,5 +46,6 @@ const createUser: CreateUser = async (user: IUser) => {
 
     // return rest.json()
     const newUser: User = await rest.json();
+    console.log(newUser);
     return newUser;
 }
