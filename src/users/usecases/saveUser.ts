@@ -15,7 +15,7 @@ const normaliceFormData: NormalicerFormData = (userLike: UserFormData): IUser =>
         gender: userLike.gender ?? 'male',
     }
 }
-
+//funcion para actualizar un usuario
 export const updateUser: UpdateUser = async (user: IUser) => {
     const url = `${import.meta.env.VITE_API_URL}/users/${user.id}`
     const rest = await fetch(url, {

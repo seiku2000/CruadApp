@@ -81,27 +81,36 @@ export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
 
     //el formdata es para obtener los valores del formulario
     const formData = new FormData(form);
-    console.log(formData);
+
     //esto para no sobreescribir los valores que no se editaron
     const userLike: UserLike = {...loaderUser }
-
+  console.log(userLike);
 
     for (const [key, value] of formData) {
       //  console.log(iterador);
-      //console.log('balance');
+
+ 
       if (key === 'balance') {
         userLike[key] = Number(value);
         //console.log(type);
       } else {
         userLike[key] = value.toString();
       }
-      if (key === 'isActive') {
-        // userLike[key] = value ===
-        userLike[key] = (value === 'on') ? true : false;
 
-      }
+      /*
+      if (key === 'isActive') {
+       
+        userLike[key] = (value === 'on') ? true : false;
+    
+
+      }*/
       // userLike[key] = value.toString() ;
     }
+    const isActiveInput = form?.querySelector('[name="isActive"]') as HTMLInputElement;
+    userLike.isActive = isActiveInput?.checked ?? false;
+
+
+
      await callBack?.(userLike);
     closeModal();
 
