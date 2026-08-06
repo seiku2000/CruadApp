@@ -3,6 +3,8 @@ import { renderAddButton } from "../render-add-button/renderAddButton";
 import { renderTable } from "../render-table/rendertable";
 import '../style/buttons.css';
 
+
+//funcion para renderizar los botones de las paginas
 export const renderButtons  =(element:HTMLElement) => {
     const divButtons: HTMLDivElement = document.createElement('div');
     divButtons.className = 'buttons-container';
@@ -25,12 +27,15 @@ export const renderButtons  =(element:HTMLElement) => {
     element.append(divButtons);
     //element.append(prevButton,currentPageLabel,nextButton);
 
+
+
+    //event listener para el boton de siguiente
     nextButton.addEventListener('click',async() =>{
         await useStore.loadNextPage();
         currentPageLabel.innerText = useStore.getCurrentPage().toString();
         renderTable(element);
     });
-
+    //event listener para el boton de anteriors
     prevButton.addEventListener('click' ,async() =>{
         await useStore.loadPreviusPage();
         currentPageLabel.innerText = useStore.getCurrentPage().toString();

@@ -1,16 +1,18 @@
 import type { IUser } from "../models/interface/User";
 import { loadUsersBypage } from "../usecases";
 import type {  LoadNextPage, LoadPreviusPage, OnUserChanged, ReloadPage, State } from "./interface/UseStore";
-
+//estado inicial de los valores  
 const state:State  = {
     currentPage:0,
     users: [],
 
 }
 
+//funcion para cargar la siguiente pagina
 const loadNextPage:LoadNextPage = async () => {
-    //throw new Error('Not implemented');
+
 const users =   await loadUsersBypage(state.currentPage + 1);
+//si no hay usuarios o la pagina es mayor a la cantidad de paginas, no se puede cargar la siguiente pagina
 if(users.length === 0) return;
 state.currentPage +=1;
 state.users = users;
@@ -18,9 +20,10 @@ state.users = users;
 
 }
 
-//Todo:Implementar
+//funcion para cargar la pagina anterior
 const loadPreviusPage:LoadPreviusPage = async () => {
-       // throw new Error('Not implemented');
+    
+   //si la pagina es menor o igual a 1, no se puede cargar la pagina anterior
 const users = await loadUsersBypage(state.currentPage - 1 );
 if( users.length === 0 || state.currentPage <= 1) return;
 //if(users.length === 0)  return;
@@ -45,8 +48,8 @@ export default {
     loadPreviusPage,
     onUserChanged,
     reloadPage,
-    getUser: ():IUser[] => [...state.users]  ,
-    getCurrentPage: ():number => state.currentPage,
+    getUser: ():IUser[] => [...state.users]  , //retorna una copia del array
+    getCurrentPage: ():number => state.currentPage, //retorna el valor actual de la pagina
 }
 
 /**

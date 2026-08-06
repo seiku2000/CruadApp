@@ -1,7 +1,7 @@
 
 import type { Genero, IUser } from "./interface/User";
 
-
+//TODO: crear el modelo de usuario con los campos que se necesitan
 export class User implements  IUser {
 
    // public id: number;

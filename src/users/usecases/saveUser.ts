@@ -16,8 +16,7 @@ const normaliceFormData: NormalicerFormData = (userLike: UserFormData): IUser =>
     }
 }
 
-
-
+//funcion para guardar un usuario
 export const saveUser: SaveUser = async (userLike: UserFormData) => {
     const normalized = normaliceFormData(userLike);
     const user = new User(normalized);
@@ -37,7 +36,7 @@ export const saveUser: SaveUser = async (userLike: UserFormData) => {
     const updateUser: User = await createUser(userToSave);
     return updateUser;
 }
-
+//funcion para crear un usuario
 const createUser: CreateUser = async (user: IUser) => {
     const url = `${import.meta.env.VITE_API_URL}/users`
     const rest = await fetch(url, {

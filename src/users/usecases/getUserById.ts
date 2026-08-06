@@ -2,6 +2,8 @@ import { localhostUserModel } from "../mappers";
 import type { localHostUser } from "../mappers/interface/LocalHostUserMapper";
 import type { GetUserById } from "./interface/GetUserById";
 
+
+//funcion para obtener un usuario por id
 export const getUserById:GetUserById = async (id: number | string) => {
 
         const url = `${import.meta.env.VITE_API_URL}/users/${id}`;

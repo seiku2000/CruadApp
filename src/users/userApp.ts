@@ -11,17 +11,18 @@ export const userApp: IUserApp = async (element: HTMLElement) => {
   element.innerHTML = ``;
   renderTable(element);
   renderButtons(element);
+  //TODO: renderModal cargar modal con la informacion del usuario
   renderModal(element, async (userLike) => {
 
 
      const user = await saveUser(userLike);
     // useStore.onUserChanged(user);
+
+    //TODO: renderTable renderizar la tabla con el usuario actualizado
      renderTable(element);
     //console.log(user);
   });
 
-  //console.log(page);
-
-  //console.log(useStore.getUser());
+ 
 
 }

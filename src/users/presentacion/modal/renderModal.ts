@@ -3,6 +3,8 @@ import type { CloseModal, RenderModal, SetUserFromValues, ShowModal, UserLike } 
 import modalHtml from './modal.html?raw';
 import '../style/modal.scss';
 import { getUserById } from '../../usecases';
+
+//variables globales de la modal
 let modal: HTMLElement;
 let form: HTMLFormElement | undefined;
 let loaderUser = {};
@@ -22,12 +24,14 @@ export const showModal:ShowModal = async (id) => {
   setFormValues(user);
   
 }
-
+//funcion para cerrar el modal y reiniciar campos
 export const closeModal:CloseModal = () => {
   modal?.classList.add('modal-container__hide');
   form?.reset();
 }
 
+
+//funcion para setear los valores del formulario
 const setFormValues:SetUserFromValues = (user) => {
  const firstNameInput = form?.querySelector('[name="firstName"]') as HTMLInputElement;
  const lastNameINput  = form?.querySelector('[name="lastName"]') as HTMLInputElement;
@@ -43,6 +47,7 @@ const setFormValues:SetUserFromValues = (user) => {
  balanceInput.value = user.balance.toString();
  isActiveChecked.checked = user.isActive;
 
+ //loaderUser = user; es para mantener los valores del usuario actual
  loaderUser = user;
 
 }
@@ -50,7 +55,7 @@ const setFormValues:SetUserFromValues = (user) => {
 
 
 
-
+//funcion para renderizar el modal
 export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
   if (modal) return
 
@@ -61,7 +66,7 @@ export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
 
 
   form = modal.querySelector('form') as HTMLFormElement;
-
+  //event listener para cerrar el modal si se hace click fuera del modal
   modal.addEventListener('click', (event) => {
     // console.log(event.target);
     if (event.target === modal) {

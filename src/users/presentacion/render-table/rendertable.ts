@@ -3,7 +3,7 @@ import useStore from "../../store/useStore";
 import type { RenderTable } from "../interface/RenderTable";
 import { showModal } from "../modal/renderModal";
 import "../style/table.css";
-
+//variable para la tabla
 let table: HTMLTableElement | null;
 /**
  *   <th>FirstName</th>
@@ -15,7 +15,7 @@ let table: HTMLTableElement | null;
  */
 
 
-
+//funcion para crear el encabezado de la tabla
 const createTable = () => {
     const table = document.createElement('table');
     const tableHeader = document.createElement('thead');
@@ -35,7 +35,7 @@ const createTable = () => {
     return table;
 }
 
-
+//funcion para seleccionar un usuario del buton select
 const tableSelectUser = (event: Event) => {
    // console.log(event.target);
    const element = event.target as HTMLElement;
@@ -44,13 +44,14 @@ const tableSelectUser = (event: Event) => {
    const id:string | null = selectUser.getAttribute('data-id');
    //console.log(id);
    showModal(id);
-  // console.log(selectUser);
-   //console.log(element.closest());
+
 }
 
-
+//funcion para renderizar la tabla en el elemento HTML
 export const renderTable: RenderTable = (element: HTMLElement) => {
     const users = useStore.getUser();
+
+    //si la tabla no existe, se crea
     if (!table) {
         table = createTable();
         element.append(table);
@@ -78,6 +79,7 @@ export const renderTable: RenderTable = (element: HTMLElement) => {
 
     //table.querySelector('tbody')!.innerHTML = tablehtml;
     const tBoddy = table.querySelector('tbody');
+    //si el tbody existe, se asigna el html
     if (tBoddy) {
         tBoddy.innerHTML = tablehtml
     }
@@ -85,7 +87,3 @@ export const renderTable: RenderTable = (element: HTMLElement) => {
 
 
 }
-/**
- *  <a href="#/" data-id="${user.id}">Select</a>
-            <a href="#/" data-id="${user.id}">Delete</a>
- */
