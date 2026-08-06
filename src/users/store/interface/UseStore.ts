@@ -14,7 +14,7 @@ export interface LoadPreviusPage {
 }
 
 export interface OnUserChanged {
-    (): Promise<void>;
+    (userUpdated: IUser | undefined): Promise<void>;
 }
 
 export interface ReloadPage {

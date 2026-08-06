@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 1,
-      "isActive": false,
+      "isActive": true,
       "balance": 1397.32,
       "avatar": "http://placehold.it/32x32",
       "first_name": "Ryan!!",
@@ -56,7 +56,7 @@
     },
     {
       "id": 7,
-      "isActive": false,
+      "isActive": true,
       "balance": 1985.59,
       "avatar": "http://placehold.it/32x32",
       "first_name": "Harris",
@@ -500,6 +500,15 @@
       "first_name": "josecarlos",
       "last_name": "carlos",
       "balance": 154878,
+      "avatar": "",
+      "isActive": true,
+      "gender": "male"
+    },
+    {
+      "id": 57,
+      "first_name": "sad",
+      "last_name": "fdsfsd",
+      "balance": 0,
       "avatar": "",
       "isActive": true,
       "gender": "male"

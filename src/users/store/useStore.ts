@@ -32,9 +32,23 @@ if( users.length === 0 || state.currentPage <= 1) return;
 state.currentPage = state.currentPage - 1;
 state.users = users;
 }
+let wasFound:boolean = false
+const onUserChanged:OnUserChanged = async (UserUpdated) => {
 
-const onUserChanged:OnUserChanged = async () => {
-    throw new Error('Not implemented');
+    //esto regresa un nuevo array con el usuario actualizado si coincide el id, sino retorna el usuario original
+    state.users = state.users.map(user => {
+        if(user.id === UserUpdated?.id) {
+            wasFound = true;
+            return UserUpdated;
+        }
+        return user;
+    });
+
+    //si la cantidad de usuarios es menor a 10 
+    // y el usuario no fue encontrado, se agrega al final
+    if(state.users.length < 10 && !wasFound) {
+        state.users.push(UserUpdated!);
+    }
 }
 
 

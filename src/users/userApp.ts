@@ -16,7 +16,7 @@ export const userApp: IUserApp = async (element: HTMLElement) => {
 
 
      const user = await saveUser(userLike);
-    // useStore.onUserChanged(user);
+     useStore.onUserChanged(user);
 
     //TODO: renderTable renderizar la tabla con el usuario actualizado
      renderTable(element);
