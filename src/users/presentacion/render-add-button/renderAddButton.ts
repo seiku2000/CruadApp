@@ -10,7 +10,7 @@ export const renderAddButton:RenderAddButton = (element:HTMLElement)  => {
 
   btnAdd.addEventListener('click' ,() => {
    // throw new Error('Function not implemented.');
-   showModal();
+   showModal(null);
   });
   return btnAdd;
   

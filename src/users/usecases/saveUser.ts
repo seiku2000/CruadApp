@@ -21,9 +21,13 @@ const normaliceFormData: NormalicerFormData = (userLike: UserFormData): IUser =>
 export const saveUser: SaveUser = async (userLike: UserFormData) => {
     const normalized = normaliceFormData(userLike);
     const user = new User(normalized);
+
+    if(!user.firstName || !user.lastName){
+        throw  `first name:${user.firstName} last name:${user.lastName} is required`;
+    }
     const userToSave:IUser = userModelToLocalhost(user);
 
-    //! todo aqui falta el mapper
+
 
 
     if (user.id) {

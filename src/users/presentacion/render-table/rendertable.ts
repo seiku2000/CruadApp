@@ -1,6 +1,7 @@
 //import { User } from "../models/user";
 import useStore from "../../store/useStore";
 import type { RenderTable } from "../interface/RenderTable";
+import { showModal } from "../modal/renderModal";
 import "../style/table.css";
 
 let table: HTMLTableElement | null;
@@ -34,12 +35,27 @@ const createTable = () => {
     return table;
 }
 
+
+const tableSelectUser = (event: Event) => {
+   // console.log(event.target);
+   const element = event.target as HTMLElement;
+   const selectUser = element.closest('.btn-select');
+   if(!selectUser) return;
+   const id:string | null = selectUser.getAttribute('data-id');
+   //console.log(id);
+   showModal(id);
+  // console.log(selectUser);
+   //console.log(element.closest());
+}
+
+
 export const renderTable: RenderTable = (element: HTMLElement) => {
     const users = useStore.getUser();
     if (!table) {
         table = createTable();
         element.append(table);
         //listener
+        table.addEventListener('click',(event) => tableSelectUser(event));
     }
     let tablehtml = '';
 
@@ -52,8 +68,8 @@ export const renderTable: RenderTable = (element: HTMLElement) => {
         <td>${user.lastName}</td>
         <td>${user.isActive}</td>
         <td>
-        <button data-id="${user.id}">Select</button>
-        <button data-id="${user.id}">Delete</button>
+        <button class="btn-select" data-id="${user.id}">Select</button>
+        <button class="btn-delete" data-id="${user.id}">Delete</button>
         </td>
     </tr>
     `
