@@ -29,6 +29,13 @@ export interface SaveUser {
     (userLike: UserFormData): Promise<User | undefined>
 }
 
+
+
 export interface CreateUser {
+    (user: IUser): Promise<User>
+}
+
+
+export interface UpdateUser {
     (user: IUser): Promise<User>
 }

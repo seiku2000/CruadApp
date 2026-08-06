@@ -106,7 +106,7 @@ export const renderModal: RenderModal = (element: HTMLElement, callBack) => {
     closeModal();
 
     //Todo:guardar usuario
-    console.log(userLike);
+    //console.log(userLike);
   });
 
   element.append(modal);
