@@ -25,11 +25,10 @@ export const updateUser: UpdateUser = async (user: IUser) => {
         },
         body: JSON.stringify(user)
     })
-
+    //esto es para obtener los datos de la api 
     const apiData = await rest.json() as any
+    //esto es para convertir los datos de la api a un usuario con el modelo
     const updatedUser: User = new User(localhostUserModel(apiData))
-    // const updatedUser: User = await rest.json();
-   // console.log(updatedUser);
     return updatedUser;
 }
 
@@ -80,8 +79,9 @@ const createUser: CreateUser = async (user: IUser) => {
         },
         body: JSON.stringify(user)
     })
-
+    //esto es para obtener los datos de la api 
     const apiData = await rest.json() as any
+    //esto es para convertir los datos de la api a un usuario con el modelo
     const newUser: User = new User(localhostUserModel(apiData))
     // const newUser: User = await rest.json();
     console.log(newUser);
