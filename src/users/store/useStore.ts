@@ -53,7 +53,13 @@ const onUserChanged:OnUserChanged = async (UserUpdated) => {
 
 
 const reloadPage:ReloadPage = async () => {
-    throw new Error('Not implemented');
+   const users =   await loadUsersBypage(state.currentPage);
+   //si no hay usuarios o la pagina es mayor a la cantidad de paginas, no se puede cargar la siguiente pagina
+   if(users.length === 0) {
+    await loadPreviusPage();
+    return;
+   }
+   state.users = users;
 }
 
 

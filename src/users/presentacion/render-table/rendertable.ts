@@ -1,6 +1,7 @@
 //import { User } from "../models/user";
 import useStore from "../../store/useStore";
-import type { RenderTable } from "../interface/RenderTable";
+import { delelteUser } from "../../usecases";
+import type { CreateTable, RenderTable, TableDeleteUser, TableSelectUser } from "../interface/RenderTable";
 import { showModal } from "../modal/renderModal";
 import "../style/table.css";
 //variable para la tabla
@@ -16,7 +17,7 @@ let table: HTMLTableElement | null;
 
 
 //funcion para crear el encabezado de la tabla
-const createTable = () => {
+const createTable: CreateTable= () => {
     const table = document.createElement('table');
     const tableHeader = document.createElement('thead');
     tableHeader.innerHTML = `
@@ -36,7 +37,7 @@ const createTable = () => {
 }
 
 //funcion para seleccionar un usuario del buton select
-const tableSelectUser = (event: Event) => {
+const tableSelectUser:TableSelectUser = (event: Event) => {
    // console.log(event.target);
    const element = event.target as HTMLElement;
    const selectUser = element.closest('.btn-select');
@@ -47,6 +48,33 @@ const tableSelectUser = (event: Event) => {
 
 }
 
+const tableDeleteUser:TableDeleteUser = async(event: Event) => {
+
+   const element = event.target as HTMLElement;
+   const selectUser = element.closest('.btn-delete');
+   if(!selectUser) return;
+   const id:string | undefined = selectUser.getAttribute('data-id') as string;
+   try {
+   // await deletete
+   await delelteUser(id);
+   await useStore.reloadPage();
+   const currentPage = document.querySelector('#current-page');
+   if(currentPage){
+    currentPage.textContent = useStore.getCurrentPage().toString();
+   }
+   renderTable(element);
+
+
+} catch (error) {
+    console.log(error);
+    alert('Error al eliminar el usuario');
+    
+   }
+
+}
+
+
+
 //funcion para renderizar la tabla en el elemento HTML
 export const renderTable: RenderTable = (element: HTMLElement) => {
     const users = useStore.getUser();
@@ -55,8 +83,10 @@ export const renderTable: RenderTable = (element: HTMLElement) => {
     if (!table) {
         table = createTable();
         element.append(table);
-        //listener
+        //listener para seleccionar usuario
         table.addEventListener('click',(event) => tableSelectUser(event));
+        //listener para eliminar usuario 
+        table.addEventListener('click',tableDeleteUser);//pasamos la funcion si solo es un argumento
     }
     let tablehtml = '';
 

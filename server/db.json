@@ -449,69 +449,6 @@
       "first_name": "Mcbride",
       "last_name": "Woodward",
       "gender": "male"
-    },
-    {
-      "id": 51,
-      "first_name": "jose",
-      "last_name": "carlos",
-      "balance": 1200,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 52,
-      "first_name": "sad",
-      "last_name": "sdad",
-      "balance": 15000,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 53,
-      "first_name": "",
-      "last_name": "",
-      "balance": 0,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 54,
-      "first_name": "sad",
-      "last_name": "Kent!",
-      "balance": 12000,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 55,
-      "first_name": "jose",
-      "last_name": "carmre",
-      "balance": 0,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 56,
-      "first_name": "josecarlos",
-      "last_name": "carlos",
-      "balance": 154878,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
-    },
-    {
-      "id": 57,
-      "first_name": "sad",
-      "last_name": "fdsfsd",
-      "balance": 0,
-      "avatar": "",
-      "isActive": true,
-      "gender": "male"
     }
   ]
 }
